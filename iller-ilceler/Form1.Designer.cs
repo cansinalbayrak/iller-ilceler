@@ -30,6 +30,7 @@
         {
             cbIller = new ComboBox();
             cbIlceler = new ComboBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // cbIller
@@ -58,11 +59,22 @@
             cbIlceler.Text = "İlçe Seçiniz";
             cbIlceler.TextChanged += cbIlceler_TextChanged;
             // 
+            // button1
+            // 
+            button1.Location = new Point(422, 37);
+            button1.Name = "button1";
+            button1.Size = new Size(163, 63);
+            button1.TabIndex = 2;
+            button1.Text = "il ekle";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(783, 528);
+            Controls.Add(button1);
             Controls.Add(cbIlceler);
             Controls.Add(cbIller);
             Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -77,5 +89,6 @@
 
         private ComboBox cbIller;
         private ComboBox cbIlceler;
+        private Button button1;
     }
 }

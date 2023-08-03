@@ -4,7 +4,7 @@ namespace iller_ilceler
 {
     public partial class Form1 : Form
     {
-        string[] iller = new string[4] { "Ankara", "Ýstanbul", "Düzce", "Kocaeli" };
+        List<string> iller = new List<string> { "Ankara", "Ýstanbul", "Düzce", "Kocaeli" };
         string[,] ilceler = new string[4, 3];
         public Form1()
         {
@@ -22,7 +22,7 @@ namespace iller_ilceler
                 ilceler[2, i] = düzceilceler[i];
                 ilceler[3, i] = kocaeliilceler[i];
             }
-            for (int i = 0; i < iller.Length; i++)
+            for (int i = 0; i < iller.Count; i++)
             {
                 cbIller.Items.Add(iller[i]);
             }
@@ -51,7 +51,7 @@ namespace iller_ilceler
             //combobox a yazýlan ili getirme (Umarým olmuþtur Göksel hocam ;( )
             bool bulunduMu = false;
 
-            for (int i = 0; i < iller.Length; i++)
+            for (int i = 0; i < iller.Count; i++)
             {
                 if (cbIller.Text == iller[i])
                 {
@@ -69,13 +69,30 @@ namespace iller_ilceler
 
             for (int i = 0; i < ilceler.GetUpperBound(1); i++)
             {
-                if (cbIller.Text == ilceler[i,i])
+                if (cbIller.Text == ilceler[i, i])
                 {
                     bulunduMu = true;
                     break;
                 }
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string yazi = cbIller.Text;
+            if(cbIller.Items.Contains(yazi))
+            {
+                MessageBox.Show("yazýlan il listede vardýr.");
+            }
+            else
+            {
+                iller.Add(yazi);
+                cbIller.Items.Add(yazi);
+            }
+
+            
+
         }
     }
 }
