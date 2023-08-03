@@ -4,22 +4,22 @@ namespace iller_ilceler
 {
     public partial class Form1 : Form
     {
-        List<string> iller = new List<string> { "Ankara", "İstanbul", "Düzce", "Kocaeli" };
+        List<string> iller = new List<string> { "Ankara", "Ãstanbul", "DÃ¼zce", "Kocaeli" };
         string[,] ilceler = new string[4, 3];
         public Form1()
         {
             InitializeComponent();
-            // daha ne kadar işi karmaşıklaştırıp fazla kod yazabilirim diye düşünmedim :(. Yine harika optimizasyonlu kodum ve ben ... Saygılar.
+            //Yine harika optimizasyonlu kodum ve ben ... SaygÃ½lar.
 
-            string[] ankarailceler = new string[3] { "Çankaya", "Batıkent", "Keçiören" };
-            string[] istanbulilceler = new string[3] { "Kadıköy", "Beşiktaş", "Şişli" };
-            string[] düzceilceler = new string[3] { "Merkez", "Çilimli", "Yığılca" };
-            string[] kocaeliilceler = new string[3] { "İzmit", "Gölcük", "Karamürsel" };
+            string[] ankarailceler = new string[3] { "Ã‡ankaya", "BatÃ½kent", "KeÃ§iÃ¶ren" };
+            string[] istanbulilceler = new string[3] { "KadÃ½kÃ¶y", "BeÃ¾iktaÃ¾", "ÃiÃ¾li" };
+            string[] dÃ¼zceilceler = new string[3] { "Merkez", "Ã‡ilimli", "YÃ½Ã°Ã½lca" };
+            string[] kocaeliilceler = new string[3] { "Ãzmit", "GÃ¶lcÃ¼k", "KaramÃ¼rsel" };
             for (int i = 0; i < ankarailceler.Length; i++)
             {
                 ilceler[0, i] = ankarailceler[i];
                 ilceler[1, i] = istanbulilceler[i];
-                ilceler[2, i] = düzceilceler[i];
+                ilceler[2, i] = dÃ¼zceilceler[i];
                 ilceler[3, i] = kocaeliilceler[i];
             }
             for (int i = 0; i < iller.Count; i++)
@@ -29,13 +29,13 @@ namespace iller_ilceler
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            cbIlceler.Enabled = false; //Başlangıçta ilçeler aktif değil
+            cbIlceler.Enabled = false; 
         }
 
         private void cbIller_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //seçilen ile göre ilçeler listelenecek. (ilçeler 2 boyutlu arrayin ikinci elemanları)
-            cbIlceler.Enabled = true; //iller seçilince ilçeler aktifleşti
+            //seÃ§ilen ile gÃ¶re ilÃ§eler listelenecek. (ilÃ§eler 2 boyutlu arrayin ikinci elemanlarÃ½)
+            cbIlceler.Enabled = true; //iller seÃ§ilince ilÃ§eler aktifleÃ¾ti
             int secilenindex = cbIller.SelectedIndex;
             cbIlceler.Items.Clear();
             for (int i = 0; i < ilceler.GetUpperBound(1); i++)
@@ -48,7 +48,7 @@ namespace iller_ilceler
 
         private void cbIller_TextChanged(object sender, EventArgs e)
         {
-            //combobox a yazılan ili getirme (Umarım olmuştur Göksel hocam ;( )
+            //combobox a yazÃ½lan ili getirme 
             bool bulunduMu = false;
 
             for (int i = 0; i < iller.Count; i++)
@@ -64,7 +64,7 @@ namespace iller_ilceler
 
         private void cbIlceler_TextChanged(object sender, EventArgs e)
         {
-            // bu da ilçeyi getirme
+            // bu da ilÃ§eyi getirme
             bool bulunduMu = false;
 
             for (int i = 0; i < ilceler.GetUpperBound(1); i++)
@@ -79,11 +79,12 @@ namespace iller_ilceler
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        { 
+        //dÄ±ÅŸarÄ±dan il ekleme
             string yazi = cbIller.Text;
             if(cbIller.Items.Contains(yazi))
             {
-                MessageBox.Show("yazılan il listede vardır.");
+                MessageBox.Show("yazÃ½lan il listede vardÃ½r.");
             }
             else
             {
